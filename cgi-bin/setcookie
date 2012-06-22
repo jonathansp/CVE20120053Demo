@@ -1,0 +1,15 @@
+#!/usr/bin/perl
+
+use CGI;
+use CGI::Cookie;
+
+my $cgi = new CGI;
+my $cookie = CGI::Cookie->new(-name => 'CVE20120053',
+	-value => 'testedeseguranca',
+	-expires => '+3M',
+	-domain => 'localhost',
+	-path => '/',
+	-secure => 0,
+	-httponly => 1
+);
+print $cgi->header(-cookie=>$cookie);
